@@ -10,84 +10,52 @@ import {
     Typography
 } from "@mui/material";
 import AppBar from "./surfaces/AppBar.tsx";
+import ProjectCard from "./components/ProjectCard.tsx";
+
+const projects = [
+    {
+        title: 'Midstone Project',
+        description: 'Our midstone project sample description',
+        githubLink: 'https://github.com/MattPiet/Mid-Stone',
+        videoSrc: 'public/Midstone.webm',
+        chips: ['C++', 'OpenGL', 'SDL3'],
+    },
+    {
+        title: 'Game 101 Final Project',
+        description: 'My final project for our Game 101 class, implementing graphics through SDL',
+        githubLink: 'https://github.com/Vakarian-S/Midstone',
+        videoSrc: 'public/Midstone.webm',
+        chips: ['C++', 'SDL2'],
+    },
+    {
+        title: 'Physics Homework',
+        description: 'Our midstone project sample description',
+        githubLink: 'https://github.com/Vakarian-S/Midstone',
+        videoSrc: 'public/Midstone.webm',
+        chips: ['C++', 'OpenGL', 'SDL2'],
+    },
+]
 
 export const App = () => {
     return (
         <div>
             <AppBar/>
             <Box padding={2} component="section" display={"flex"} justifyContent={'center'}>
-                <Typography variant="h2" >
+                <Typography variant="h2">
                     My Projects
                 </Typography>
             </Box>
             <Container
                 sx={{
-                    paddingTop: { 'xs': 4, 'md': 4},
-                    paddingX: { 'xs': 0, 'md': 4},
+                    paddingTop: {'xs': 4, 'md': 4},
+                    paddingX: {'xs': 0, 'md': 4},
                     display: 'flex',
                     flexDirection: {xs: 'column', md: 'row'},
                     gap: 5
                 }} maxWidth={'xl'}>
-                <Card>
-                    <CardMedia
-                        component="video"
-                        src={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
-                        controls={true}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                        </Typography>
-                        <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Share</Button>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
-                </Card>
-                <Card>
-                    <CardMedia
-                        component="video"
-                        src={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
-                        controls={true}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                        </Typography>
-                        <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Share</Button>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
-                </Card>
-                <Card >
-                    <CardMedia
-                        component="video"
-                        src={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
-                        controls={true}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Lizard
-                        </Typography>
-                        <Typography variant="body2" sx={{color: 'text.secondary'}}>
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Share</Button>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
-                </Card>
+                {projects && projects.length && (projects.map((project, index) => (
+                    <ProjectCard {...project} key={index}/>
+                )))}
             </Container>
             {/* <Container maxWidth={'xl'}>
                 <Box flexDirection="row" display="flex" justifyContent="space-between">

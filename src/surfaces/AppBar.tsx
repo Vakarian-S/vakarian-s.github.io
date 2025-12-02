@@ -30,17 +30,20 @@ function ResponsiveAppBar() {
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         <Tooltip title="My LinkedIn">
-                            <IconButton aria-label="linkedin" size={"medium"} style={{color: 'white'}}>
+                            <IconButton href={'https://www.linkedin.com/in/sebastian-villarroel-2243aa177/'}
+                                        aria-label="linkedin" size={"medium"} style={{color: 'white'}}>
                                 <LinkedInIcon fontSize={"large"}/>
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="My Github">
-                            <IconButton aria-label="github" size={"medium"} style={{color: 'white'}}>
+                            <IconButton href={'https://github.com/Vakarian-S'} aria-label="github" size={"medium"}
+                                        style={{color: 'white'}}>
                                 <GitHubIcon fontSize={"large"}/>
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="My Resume">
-                            <IconButton aria-label="resume" size={"medium"} style={{color: 'white'}}>
+                            <IconButton href={'https://www.linkedin.com/in/sebastian-villarroel-2243aa177/'}
+                                        aria-label="resume" size={"medium"} style={{color: 'white'}}>
                                 <DescriptionIcon fontSize={"large"}/>
                             </IconButton>
                         </Tooltip>
