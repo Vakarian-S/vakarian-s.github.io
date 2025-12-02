@@ -6,6 +6,12 @@ const ProjectCard = ({
     description,
     githubLink,
     chips
+}: {
+    videoSrc: string;
+    title: string;
+    description: string;
+    githubLink: string;
+    chips: string[]
 }) => {
     return (
         <Card sx={{flexGrow: {md: 1}, flexBasis: {md: 0}}}>
@@ -30,7 +36,8 @@ const ProjectCard = ({
                 </Typography>
             </CardContent>
             <CardActions sx={{paddingLeft: 2}}>
-                <Button sx={{paddingLeft: 0}} href={githubLink || '#'} target={'_blank'} size="small">View on GitHub</Button>
+                <Button sx={{paddingLeft: 0}} href={githubLink || '#'} target={'_blank'} size="small">View on
+                    GitHub</Button>
             </CardActions>
         </Card>
     );

@@ -1,11 +1,6 @@
 import './App.css'
 import {
     Box,
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
     Container,
     Typography
 } from "@mui/material";
