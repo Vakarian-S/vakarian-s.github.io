@@ -44,7 +44,7 @@ const TopAppBar: FC<TopBarProps> = ({title = 'My App'}) => {
                         </Tooltip>
                         <Tooltip title="My Resume">
                             <IconButton target={'_blank'}
-                                        href={'/Resume.pdf'}
+                                        href={'/2026_09_Game_Programming_Intern.pdf'}
                                         aria-label="resume" size={"medium"} style={{color: 'white'}}>
                                 <DescriptionIcon fontSize={"large"}/>
                             </IconButton>
