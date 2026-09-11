@@ -1,4 +1,9 @@
-﻿export type Project = {
+﻿export type ExternalLink = {
+    label: string;
+    url: string;
+};
+
+export type Project = {
     slug: string;
     title: string;
     cardBlurb: string;
@@ -6,9 +11,28 @@
     skills: string[];
     githubUrl: string;
     videoSrc?: string;
+    externalLink?: ExternalLink;
 };
 
 export const Projects: Project[] = [
+    {
+        slug: "free-fall",
+        title: "Free Fall",
+        cardBlurb: "🏆 3rd Place, Level Up Showcase People's Choice Award\n\nA multiplayer Unreal Engine 5 racing game set in a post-apocalyptic world where buildings collapse around the track. Built by a 15+ person cross-disciplinary team and played with an Asetek racing wheel.",
+        description:
+            "Free Fall is a multiplayer racing game set in a post-apocalyptic world, where buildings collapse around the track using Unreal's Chaos destruction system. It was built in Unreal Engine 5 over four months by a team of 15+ game programming and 3D Animation students, and it won 3rd place for the People's Choice Award at the Level Up Showcase.\n" +
+            "\n" +
+            "I led the project as Tech Design and Programming lead. I programmed all of the UI, built the checkpoint and respawn logic, and used C++ to generate a spline in code that tracks each player's race progress. I also helped build the networking, including the replication of effects and of resources such as the nitro boost.\n" +
+            "\n" +
+            "The game is meant to be played with a racing simulator wheel from Asetek. Since Unreal's Enhanced Input system does not support the wheel, the team integrated it through a custom DLL. I worked on the Blueprint side of that integration, connecting the wheel's inputs to the game's features and adding input behaviors such as press-and-hold actions.",
+        skills: ["Unreal Engine 5", "C++", "Blueprints", "Replication", "UI", "Splines", "Hardware Input", "Team Lead"],
+        githubUrl: "https://github.com/MattPiet/GAME259_2026_WinterA",
+        videoSrc: "https://www.youtube.com/embed/DBT8PXQmHnM",
+        externalLink: {
+            label: "Game website",
+            url: "https://freefallhumber.wixsite.com/free-fall",
+        },
+    },
     {
         slug: "graphics-and-physics-collection",
         title: "Graphics and Physics Collection",
