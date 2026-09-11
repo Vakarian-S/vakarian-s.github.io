@@ -12,13 +12,14 @@ export type Project = {
     githubUrl: string;
     videoSrc?: string;
     externalLink?: ExternalLink;
+    highlight?: string;
 };
 
 export const Projects: Project[] = [
     {
         slug: "free-fall",
         title: "Free Fall",
-        cardBlurb: "🏆 3rd Place, Level Up Showcase People's Choice Award\n\nA multiplayer Unreal Engine 5 racing game set in a post-apocalyptic world where buildings collapse around the track. Built by a 15+ person cross-disciplinary team and played with an Asetek racing wheel.",
+        cardBlurb: "A multiplayer Unreal Engine 5 racing game set in a post-apocalyptic world where buildings collapse around the track. Built by a 15+ person cross-disciplinary team and played with an Asetek racing wheel.",
         description:
             "Free Fall is a multiplayer racing game set in a post-apocalyptic world, where buildings collapse around the track using Unreal's Chaos destruction system. It was built in Unreal Engine 5 over four months by a team of 15+ game programming and 3D Animation students, and it won 3rd place for the People's Choice Award at the Level Up Showcase.\n" +
             "\n" +
@@ -32,6 +33,7 @@ export const Projects: Project[] = [
             label: "Game website",
             url: "https://freefallhumber.wixsite.com/free-fall",
         },
+        highlight: "3rd Place, Level Up Showcase People's Choice Award",
     },
     {
         slug: "graphics-and-physics-collection",

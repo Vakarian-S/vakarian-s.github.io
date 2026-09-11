@@ -11,6 +11,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import { Projects } from "@/data/projects";
 
 type PageProps = {
@@ -57,6 +58,25 @@ export default async function ProjectDetailPage(props: PageProps) {
                             View on GitHub
                         </Button>
                     </Stack>
+
+                    {project.highlight ? (
+                        <aside
+                            aria-label="Project highlight"
+                            className="flex items-center gap-4 rounded-xl border border-gold-600/30 bg-gold-600/10 p-4 md:p-5"
+                        >
+                            <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-gold-600 text-white">
+                                <EmojiEventsOutlinedIcon aria-hidden="true" />
+                            </span>
+                            <div className="flex flex-col gap-0.5">
+                                <span className="uppercase text-xs font-medium tracking-[0.08333em] text-brand-900/70">
+                                    Highlight
+                                </span>
+                                <span className="text-base md:text-lg font-medium text-brand-900">
+                                    {project.highlight}
+                                </span>
+                            </div>
+                        </aside>
+                    ) : null}
 
                     {project.videoSrc ? (
                         <Box
