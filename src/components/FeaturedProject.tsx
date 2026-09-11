@@ -4,6 +4,7 @@ import type { Project } from "@/data/projects";
 import { Box, Button, Chip, Container, Typography } from "@mui/material";
 import Link from "next/link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import VideoFacade from "@/components/VideoFacade";
 import Reveal from "@/components/Reveal";
 
@@ -23,6 +24,12 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
                     <Reveal delay={0} className={'flex-5 text-white flex flex-col gap-5'}>
                         <span className={'uppercase text-xs opacity-80'}>Featured Project</span>
                         <h3 className={'text-[32px] sm:text-[40px] lg:text-5xl font-light leading-[1.2]'}>{project.title}</h3>
+                        {project.highlight ? (
+                            <p className="flex items-start gap-2.5 font-medium text-gold-300">
+                                <EmojiEventsOutlinedIcon fontSize="small" aria-hidden="true" className="mt-0.5 shrink-0" />
+                                {project.highlight}
+                            </p>
+                        ) : null}
                         <p className={'opacity-80 whitespace-pre-line'}>{project.cardBlurb}</p>
                         <div className={'flex flex-wrap gap-2'}>
                             {project.skills.map((chipLabel, chipIndex) => (

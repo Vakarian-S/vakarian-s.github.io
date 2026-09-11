@@ -9,6 +9,7 @@
   --color-navy-800:  #2b3063;
   --color-navy-950:  #161938;
   --color-gold-600:  #7d7340; /* 4.8:1 with white text, passes WCAG AA */
+  --color-gold-300:  #d8cc8e; /* gold text on navy, about 7.6:1 on navy-800 */
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -51,4 +52,10 @@ body {
   background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
   background-size: 22px 22px;
   mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+@utility bg-dot-grid-navy {
+  background-image: radial-gradient(rgb(33 36 99 / 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to right, transparent 40%, black 85%);
 }
