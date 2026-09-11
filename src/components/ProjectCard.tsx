@@ -8,11 +8,11 @@ import {
     Card,
     CardActions,
     CardContent,
-    CardMedia,
     Chip,
     Stack,
     Typography,
 } from "@mui/material";
+import VideoFacade from "@/components/VideoFacade";
 
 type ProjectCardProps = {
     title: string;
@@ -33,25 +33,20 @@ export default function ProjectCard(props: ProjectCardProps) {
     return (
         <Card
             elevation={2}
+            className="group w-full motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl has-focus-visible:-translate-y-1"
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                flex: 1,
-                minWidth: 280,
                 borderRadius: 3,
                 overflow: "hidden",
             }}
         >
             {hasVideo ? (
-                <CardMedia
-                    component="iframe"
-                    src={props.videoSrc}
-                    sx={{height: 220, bgcolor: "grey.100"}}
-                />
+                <VideoFacade videoSrc={props.videoSrc!} title={props.title} />
             ) : (
                 <Box
+                    className="aspect-video"
                     sx={{
-                        height: 220,
                         bgcolor: "primary.100",
                         display: "flex",
                         alignItems: "center",
@@ -108,15 +103,6 @@ export default function ProjectCard(props: ProjectCardProps) {
                 }}
             >
                 <Button
-                    component={Link}
-                    href={props.detailHref}
-                    variant="outlined"
-                    fullWidth
-                >
-                    Details
-                </Button>
-
-                <Button
                     href={props.githubLink}
                     target="_blank"
                     rel="noreferrer"
@@ -124,6 +110,15 @@ export default function ProjectCard(props: ProjectCardProps) {
                     fullWidth
                 >
                     GitHub
+                </Button>
+
+                <Button
+                    component={Link}
+                    href={props.detailHref}
+                    variant="outlined"
+                    fullWidth
+                >
+                    Details
                 </Button>
             </CardActions>
         </Card>

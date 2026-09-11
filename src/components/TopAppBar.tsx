@@ -1,5 +1,7 @@
-﻿import { FC, ReactNode } from 'react';
-import { AppBar, Box, Container, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
+﻿"use client";
+
+import { FC } from 'react';
+import { AppBar, Box, Container, IconButton, Toolbar, Tooltip, Typography, useScrollTrigger } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -9,9 +11,17 @@ interface TopBarProps {
     title?: string;
 }
 
-const TopAppBar: FC<TopBarProps> = ({title = 'My App'}) => {
+const TopAppBar: FC<TopBarProps> = () => {
+    const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 8 });
+
     return (
-        <AppBar position="sticky">
+        <AppBar
+            position="sticky"
+            elevation={0}
+            className={`transition-[background-color,box-shadow] duration-300 ${
+                scrolled ? 'bg-navy-950/85 backdrop-blur-md shadow-lg' : 'bg-navy-950 shadow-none'
+            }`}
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
