@@ -1,9 +1,11 @@
 'use client'
 import * as React from "react";
 import type { Project } from "@/data/projects";
-import { Box, Button, CardMedia, Chip, Container, Typography } from "@mui/material";
+import { Box, Button, Chip, Container, Typography } from "@mui/material";
 import Link from "next/link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import VideoFacade from "@/components/VideoFacade";
+import Reveal from "@/components/Reveal";
 
 type FeaturedProjectProps = {
     project: Project;
@@ -14,10 +16,11 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
     const hasVideo = Boolean(project.videoSrc);
 
     return (
-        <div className={'bg-linear-135 from-[#2b3063] to-[#161938]'}>
+        <div id="featured" className={'relative overflow-hidden scroll-mt-20 bg-linear-135 from-[#2b3063] to-[#161938]'}>
+            <div className={'absolute inset-0 pointer-events-none bg-dot-grid'}/>
             <Container maxWidth="xl" component="section" className={'py-12'}>
                 <div className={'flex lg:flex-row flex-col gap-10'}>
-                    <div className={'flex-5 text-white flex flex-col gap-5'}>
+                    <Reveal delay={0} className={'flex-5 text-white flex flex-col gap-5'}>
                         <span className={'uppercase text-xs opacity-80'}>Featured Project</span>
                         <h3 className={'text-[32px] sm:text-[40px] lg:text-5xl font-light leading-[1.2]'}>{project.title}</h3>
                         <p className={'opacity-80 whitespace-pre-line'}>{project.cardBlurb}</p>
@@ -70,15 +73,12 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
                                 </a>
                             </div>
                         ) : null}
-                    </div>
-                    <div className={'w-full lg:flex-6 lg:self-center rounded-xl overflow-hidden shadow-2xl'}>
+                    </Reveal>
+                    <Reveal delay={120} className={'group w-full lg:flex-6 lg:self-center rounded-xl overflow-hidden shadow-2xl'}>
                         {hasVideo ? (
-                            <CardMedia
-                                component="iframe"
-                                className={'w-full aspect-video border-0'}
-                                src={project.videoSrc}
+                            <VideoFacade
+                                videoSrc={project.videoSrc!}
                                 title={project.title}
-                                allowFullScreen
                             />
                         ) : (
                             <Box
@@ -96,7 +96,7 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
                                 </Typography>
                             </Box>
                         )}
-                    </div>
+                    </Reveal>
                 </div>
             </Container>
         </div>

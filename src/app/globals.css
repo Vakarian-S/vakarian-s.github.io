@@ -1,26 +1,54 @@
+@layer theme, base, mui, components, utilities;
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-brand-50:  #e8e9f2;
+  --color-brand-100: #c4c9e0;
+  --color-brand-500: #5f69a6;
+  --color-brand-900: #212463;
+  --color-navy-800:  #2b3063;
+  --color-navy-950:  #161938;
+  --color-gold-600:  #7d7340; /* 4.8:1 with white text, passes WCAG AA */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-fade-up: fade-up 600ms var(--ease-out-quint) both;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
   }
 }
 
+/* animate-delay-120 -> animation-delay: 120ms */
+@utility animate-delay-* {
+  animation-delay: calc(--value(integer) * 1ms);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-brand-50);
+  color: var(--color-brand-900);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@utility reveal {
+  transition: opacity 600ms var(--ease-out-quint), transform 600ms var(--ease-out-quint);
+  transition-delay: var(--reveal-delay, 0ms);
+
+  @media (prefers-reduced-motion: no-preference) {
+    :where(html.js) &:not([data-revealed]) {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+}
+
+@utility bg-dot-grid {
+  background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
