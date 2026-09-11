@@ -36,6 +36,20 @@ export const Projects: Project[] = [
         highlight: "3rd Place, Level Up Showcase People's Choice Award",
     },
     {
+        slug: "ecengine",
+        title: "ECEngine",
+        cardBlurb: "A 3D game engine built from scratch in C++20 and OpenGL, using an Entity-Component architecture. Its chess demo features multi-light shading, animated firework lights, and collision physics controlled from an ImGui panel.",
+        description:
+            "ECEngine is a small 3D game engine I built in C++20 with SDL3 and OpenGL to learn how game engines work under the hood. It follows an Entity-Component (EC) architecture, similar to the actor and component model in Unity and Unreal. Every object in the scene is an actor made of components, such as transform, mesh, shader, material, physics, and collision. Actors can have parents, so the chess pieces follow the board when it moves.\n" +
+            "\n" +
+            "Scenes are data-driven. An asset manager reads an XML file that lists meshes, shaders, textures, and actor setups, then loads each asset only once so pieces of the same type share it. For lighting, I wrote a GLSL Phong shader that supports up to 8 point lights, including five firework lights that rise, flicker, burst, and fade with randomized colors and timing.\n" +
+            "\n" +
+            "I also built a collision system that works like a system in ECS: it loops over every actor with collision and physics components, detects sphere and box overlaps, and bounces pieces with a mass-based response. An ImGui panel lets you switch between four cameras, generate colliders, show their wireframes, and launch pieces into each other. Along the way, I moved the codebase from raw pointers to smart pointers and added debug checks that catch memory leaks.",
+        skills: ["C++", "OpenGL", "GLSL", "SDL3", "Entity-Component", "Collision Physics", "ImGui"],
+        githubUrl: "https://github.com/Vakarian-S/2026_ECEngine",
+        videoSrc: "https://www.youtube.com/embed/KTLeOqmhNn8?si=o-htLjwmPmdpzX4M",
+    },
+    {
         slug: "graphics-and-physics-collection",
         title: "Graphics and Physics Collection",
         cardBlurb: "A collection of C++ graphics and physics projects focused on OpenGL rendering pipelines and physics-based calculations such as collisions, movement, and rotation.",
