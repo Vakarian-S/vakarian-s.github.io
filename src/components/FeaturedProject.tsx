@@ -5,8 +5,10 @@ import { Box, Button, Chip, Container, Typography } from "@mui/material";
 import Link from "next/link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import VideoFacade from "@/components/VideoFacade";
 import Reveal from "@/components/Reveal";
+import CornerFrame from "@/components/CornerFrame";
 
 type FeaturedProjectProps = {
     project: Project;
@@ -17,9 +19,11 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
     const hasVideo = Boolean(project.videoSrc);
 
     return (
-        <div id="featured" className={'relative overflow-hidden scroll-mt-20 bg-linear-135 from-[#2b3063] to-[#161938]'}>
-            <div className={'absolute inset-0 pointer-events-none bg-dot-grid'}/>
-            <Container maxWidth="xl" component="section" className={'py-12'}>
+        <div id="featured" className={'relative overflow-hidden scroll-mt-20 [--diagonal:clamp(24px,4vw,64px)]'}>
+            <div aria-hidden="true" className={'absolute inset-0 pointer-events-none clip-diagonal bg-linear-135 from-[#2b3063] to-[#161938]'}>
+                <div className={'absolute inset-0 bg-dot-grid'}/>
+            </div>
+            <Container maxWidth="xl" component="section" className={'relative pt-[calc(3rem+var(--diagonal))] pb-12'}>
                 <div className={'flex lg:flex-row flex-col gap-10'}>
                     <Reveal delay={0} className={'flex-5 text-white flex flex-col gap-5'}>
                         <span className={'uppercase text-xs opacity-80'}>Featured Project</span>
@@ -43,14 +47,14 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
                                 />
                             ))}
                         </div>
-                        <div className={'flex gap-2'}>
+                        <div className={'flex flex-wrap gap-3'}>
                             <Button
                                 href={project.githubUrl}
                                 target="_blank"
                                 rel="noreferrer"
                                 variant="contained"
-                                fullWidth
-                                className={'min-h-11 lg:min-h-0'}
+                                startIcon={<GitHubIcon />}
+                                className={'min-h-11 lg:min-h-0 min-w-40 bg-page! text-navy-950! hover:bg-brand-100!'}
                             >
                                 GitHub
                             </Button>
@@ -58,8 +62,7 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
                                 component={Link}
                                 href={`/projects/${project.slug}`}
                                 variant="outlined"
-                                fullWidth
-                                className={'min-h-11 lg:min-h-0 text-white! border-white/60!'}
+                                className={'min-h-11 lg:min-h-0 min-w-40 text-white! border-white/60! hover:bg-white/10! hover:border-white!'}
                             >
                                 Details
                             </Button>
@@ -81,28 +84,32 @@ export default function FeaturedProject(props: FeaturedProjectProps) {
                             </div>
                         ) : null}
                     </Reveal>
-                    <Reveal delay={120} className={'group w-full lg:flex-6 lg:self-center rounded-xl overflow-hidden shadow-2xl'}>
-                        {hasVideo ? (
-                            <VideoFacade
-                                videoSrc={project.videoSrc!}
-                                title={project.title}
-                            />
-                        ) : (
-                            <Box
-                                className={'aspect-video'}
-                                sx={{
-                                    bgcolor: "primary.100",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    px: 2,
-                                }}
-                            >
-                                <Typography variant="subtitle1" color="primary.dark" textAlign="center">
-                                    {project.title}
-                                </Typography>
-                            </Box>
-                        )}
+                    <Reveal delay={120} className={'group w-full lg:flex-6 lg:self-center'}>
+                        <CornerFrame tone="dark">
+                            <div className={'overflow-hidden rounded shadow-2xl'}>
+                                {hasVideo ? (
+                                    <VideoFacade
+                                        videoSrc={project.videoSrc!}
+                                        title={project.title}
+                                    />
+                                ) : (
+                                    <Box
+                                        className={'aspect-video'}
+                                        sx={{
+                                            bgcolor: "primary.100",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            px: 2,
+                                        }}
+                                    >
+                                        <Typography variant="subtitle1" color="primary.dark" textAlign="center">
+                                            {project.title}
+                                        </Typography>
+                                    </Box>
+                                )}
+                            </div>
+                        </CornerFrame>
                     </Reveal>
                 </div>
             </Container>

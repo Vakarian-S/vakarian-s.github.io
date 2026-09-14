@@ -12,6 +12,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import VideoFacade from "@/components/VideoFacade";
 
 type ProjectCardProps = {
@@ -32,8 +33,8 @@ export default function ProjectCard(props: ProjectCardProps) {
 
     return (
         <Card
-            elevation={2}
-            className="group w-full motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl has-focus-visible:-translate-y-1"
+            elevation={0}
+            className="group w-full border border-brand-900/10 shadow-sm motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl has-focus-visible:-translate-y-1"
             sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -94,12 +95,12 @@ export default function ProjectCard(props: ProjectCardProps) {
             </CardContent>
 
             <CardActions
+                disableSpacing
+                className="flex flex-wrap gap-3"
                 sx={{
                     px: 2,
                     pb: 2,
                     pt: 0,
-                    display: "flex",
-                    gap: 1,
                 }}
             >
                 <Button
@@ -107,7 +108,8 @@ export default function ProjectCard(props: ProjectCardProps) {
                     target="_blank"
                     rel="noreferrer"
                     variant="contained"
-                    fullWidth
+                    startIcon={<GitHubIcon />}
+                    className="min-w-40"
                 >
                     GitHub
                 </Button>
@@ -116,7 +118,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                     component={Link}
                     href={props.detailHref}
                     variant="outlined"
-                    fullWidth
+                    className="min-w-40 text-brand-900! border-brand-500!"
                 >
                     Details
                 </Button>

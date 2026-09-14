@@ -12,6 +12,7 @@ import {
     Typography,
 } from "@mui/material";
 import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { Projects } from "@/data/projects";
 
 type PageProps = {
@@ -24,7 +25,7 @@ export default async function ProjectDetailPage(props: PageProps) {
     if (!project) notFound();
 
     return (
-        <Box bgcolor="primary.50" minHeight="100vh" py={{ xs: 3, md: 5 }}>
+        <Box minHeight="100vh" py={{ xs: 3, md: 5 }}>
             <Container maxWidth="md">
                 <Stack spacing={{ xs: 2, md: 3 }}>
                     <Breadcrumbs aria-label="breadcrumb">
@@ -53,6 +54,7 @@ export default async function ProjectDetailPage(props: PageProps) {
                             target="_blank"
                             rel="noreferrer"
                             variant="contained"
+                            startIcon={<GitHubIcon />}
                             fullWidth
                         >
                             View on GitHub

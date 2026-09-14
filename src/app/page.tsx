@@ -49,7 +49,7 @@ export default function HomePage() {
             <Reveal delay={0} className={'flex justify-center py-10'}>
                 <Link
                     href="/projects"
-                    className={'inline-flex items-center justify-center gap-2 min-h-11 min-w-40 px-4 rounded border border-brand-500 text-brand-900 text-sm font-medium uppercase tracking-[0.02857em] transition-colors duration-200 hover:bg-brand-500 hover:text-white'}
+                    className={'inline-flex items-center justify-center gap-2 min-h-11 min-w-40 px-4 rounded border border-brand-500 text-brand-900 text-sm font-medium uppercase tracking-[0.02857em] transition-colors duration-250 hover:bg-brand-500/4'}
                 >
                     See all projects
                     <span aria-hidden="true">→</span>

@@ -26,6 +26,24 @@ const theme = createTheme({
             dark: "#ba000d",
             contrastText: "#fff",
         },
+        background: {
+            default: "#f8f9fc",
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                containedPrimary: {
+                    backgroundColor: "#212463",
+                    "&:hover": { backgroundColor: "#161938" },
+                },
+            },
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: { borderRadius: 2 },
+            },
+        },
     },
 });
 
@@ -36,7 +54,7 @@ export default function Providers(props: { children: React.ReactNode }) {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Box bgcolor="primary.50" minHeight="100vh">
+                <Box className="bg-page min-h-screen">
                     <TopAppBar />
                     {props.children}
                     <footer className="border-t border-brand-900/10 py-8 text-sm text-brand-900/70">

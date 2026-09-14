@@ -2,6 +2,7 @@ import { Button, Container } from "@mui/material";
 import Image from "next/image";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import CornerFrame from "@/components/CornerFrame";
 
 const heroContent = {
     eyebrow: "Game Programming Student",
@@ -59,24 +60,25 @@ export default function Hero() {
                                 href={`mailto:${heroContent.email}`}
                                 variant="outlined"
                                 startIcon={<MailOutlineIcon />}
-                                className="min-h-11"
+                                className="min-h-11 text-brand-900! border-brand-500!"
                             >
                                 Email me
                             </Button>
                         </div>
                     </div>
-                    <div className="relative order-first md:order-last shrink-0 w-40 md:w-56 lg:w-72 mr-3 mb-3 md:mr-4 md:mb-4 lg:mr-16 motion-safe:animate-fade-up motion-safe:animate-delay-160">
-                        <div aria-hidden="true" className="absolute inset-0 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 rounded-xl border-2 border-gold-600" />
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-brand-100 shadow-2xl">
-                            <Image
-                                src={heroContent.headshot.src}
-                                alt={heroContent.headshot.alt}
-                                fill
-                                preload
-                                sizes="(min-width: 1024px) 288px, (min-width: 768px) 224px, 160px"
-                                className="object-cover"
-                            />
-                        </div>
+                    <div className="group relative order-first md:order-last shrink-0 w-40 md:w-56 lg:w-72 m-2.5 lg:mr-16 motion-safe:animate-fade-up motion-safe:animate-delay-160">
+                        <CornerFrame tone="light">
+                            <div className="relative aspect-[4/5] overflow-hidden rounded bg-brand-100 shadow-2xl">
+                                <Image
+                                    src={heroContent.headshot.src}
+                                    alt={heroContent.headshot.alt}
+                                    fill
+                                    preload
+                                    sizes="(min-width: 1024px) 288px, (min-width: 768px) 224px, 160px"
+                                    className="object-cover"
+                                />
+                            </div>
+                        </CornerFrame>
                     </div>
                 </div>
             </Container>
