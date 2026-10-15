@@ -5,9 +5,9 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CornerFrame from "@/components/CornerFrame";
 
 const heroContent = {
-    eyebrow: "Game Programming Student",
+    eyebrow: "Game Programmer",
     name: "Sebastian Villarroel",
-    role: "C++ · Unreal Engine 5 · OpenGL",
+    role: "C++ · Unreal Engine 5 · Vulkan",
     blurb: "I build gameplay systems and rendering code for small teams, and I'm looking for a game programming internship.",
     availability: "Open to internships from January 2027 (Winter term)",
     location: "Based in Mississauga, Ontario · Willing to relocate",
