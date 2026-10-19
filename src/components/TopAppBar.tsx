@@ -7,7 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import Link from 'next/link';
 
-const RESUME_HREF = '/2026_09_Game_Programming_Intern.pdf';
+const RESUME_HREF = '/2026_10_Game_Programming_Intern.pdf';
 
 const TopAppBar: FC = () => {
     const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 8 });

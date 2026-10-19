@@ -10,7 +10,7 @@ const heroContent = {
     role: "C++ · Unreal Engine 5 · Vulkan",
     blurb: "I build gameplay systems and rendering code for small teams, and I'm looking for a game programming internship.",
     availability: "Open to internships from January 2027 (Winter term)",
-    location: "Based in Mississauga, Ontario · Willing to relocate",
+    location: "Based in Ontario · Willing to relocate",
     email: "sebastian.gvg94@gmail.com",
     resumeHref: "/2026_09_Game_Programming_Intern.pdf",
     headshot: { src: "/headshot.png", alt: "Portrait of Sebastian Villarroel" },
