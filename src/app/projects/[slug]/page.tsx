@@ -15,6 +15,7 @@ import EmojiEventsOutlinedIcon from "@mui/icons-material/EmojiEventsOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { Projects } from "@/data/projects";
+import { getProjectDiagram } from "@/components/ProjectDiagram";
 
 type PageProps = {
     params: { slug: string };
@@ -24,6 +25,8 @@ export default async function ProjectDetailPage(props: PageProps) {
     const params = await props.params;
     const project = Projects.find((item) => item.slug === params?.slug);
     if (!project) notFound();
+
+    const diagram = getProjectDiagram(project.slug);
 
     return (
         <Box minHeight="100vh" py={{ xs: 3, md: 5 }}>
@@ -133,6 +136,31 @@ export default async function ProjectDetailPage(props: PageProps) {
                             {project.description}
                         </Typography>
                     </Stack>
+
+                    {diagram ? (
+                        <>
+                            <Divider />
+
+                            <Stack spacing={1.5}>
+                                <Typography variant="h5" color="primary.dark">
+                                    Architecture
+                                </Typography>
+                                <Typography color="text.secondary">{diagram.caption}</Typography>
+                                <Box
+                                    sx={{
+                                        borderRadius: 3,
+                                        border: "1px solid",
+                                        borderColor: "divider",
+                                        bgcolor: "background.paper",
+                                        p: { xs: 2, md: 3 },
+                                        overflowX: "auto",
+                                    }}
+                                >
+                                    {diagram.render()}
+                                </Box>
+                            </Stack>
+                        </>
+                    ) : null}
 
                     <Divider />
 
