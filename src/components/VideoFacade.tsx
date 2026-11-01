@@ -5,15 +5,54 @@ import Image from "next/image";
 import { getYouTubeId } from "@/lib/youtube";
 
 type VideoFacadeProps = {
-    videoSrc: string;
+    videoSrc?: string;
     title: string;
+    tone?: "dark" | "light";
     className?: string;
 };
 
+function Placeholder(props: { tone: "dark" | "light"; className: string }) {
+    const dark = props.tone === "dark";
+
+    return (
+        <div
+            className={`relative flex w-full aspect-video flex-col items-center justify-center gap-3 ${
+                dark ? "bg-navy-800" : "bg-brand-50"
+            } ${props.className}`}
+        >
+            <span
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                    backgroundImage: `radial-gradient(${dark ? "rgb(255 255 255 / 0.14)" : "rgb(33 36 99 / 0.3)"} 1px, transparent 1px)`,
+                    backgroundSize: "22px 22px",
+                }}
+            />
+            <span
+                aria-hidden="true"
+                className={`relative flex size-14 items-center justify-center rounded-full border-2 ${
+                    dark ? "border-gold-300" : "border-gold-600"
+                }`}
+            >
+                <svg viewBox="0 0 24 24" className={`ml-1 h-6 w-6 ${dark ? "fill-gold-300" : "fill-gold-600"}`}>
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+            </span>
+            <p className={`relative text-sm uppercase tracking-[0.06em] ${dark ? "text-brand-100" : "text-brand-500"}`}>
+                Capture coming soon
+            </p>
+        </div>
+    );
+}
+
 export default function VideoFacade(props: VideoFacadeProps) {
-    const { videoSrc, title, className = "" } = props;
+    const { videoSrc, title, tone = "dark", className = "" } = props;
     const [playing, setPlaying] = React.useState(false);
-    const id = getYouTubeId(videoSrc);
+    const id = videoSrc ? getYouTubeId(videoSrc) : null;
+
+    if (!videoSrc) {
+        return <Placeholder tone={tone} className={className} />;
+    }
 
     if (!id) {
         return (

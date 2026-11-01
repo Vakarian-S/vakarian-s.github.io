@@ -3,7 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 import {
-    Box,
     Button,
     Card,
     CardActions,
@@ -22,6 +21,7 @@ type ProjectCardProps = {
     detailHref: string; // example: `/projects/midstone`
     videoSrc?: string;
     chips?: string[];
+    accent?: boolean;
 };
 
 function HasChips(chips: string[] | undefined): chips is string[] {
@@ -29,12 +29,12 @@ function HasChips(chips: string[] | undefined): chips is string[] {
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
-    const hasVideo = Boolean(props.videoSrc);
-
     return (
         <Card
             elevation={0}
-            className="group w-full border border-brand-900/10 shadow-sm motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl has-focus-visible:-translate-y-1"
+            className={`group w-full border border-brand-900/10 shadow-sm motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl has-focus-visible:-translate-y-1 ${
+                props.accent ? "border-t-[3px] border-t-gold-600" : ""
+            }`}
             sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -42,24 +42,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                 overflow: "hidden",
             }}
         >
-            {hasVideo ? (
-                <VideoFacade videoSrc={props.videoSrc!} title={props.title} />
-            ) : (
-                <Box
-                    className="aspect-video"
-                    sx={{
-                        bgcolor: "primary.100",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        px: 2,
-                    }}
-                >
-                    <Typography variant="subtitle1" color="primary.dark" textAlign="center">
-                        {props.title}
-                    </Typography>
-                </Box>
-            )}
+            <VideoFacade videoSrc={props.videoSrc} title={props.title} tone="light" />
 
             <CardContent sx={{flexGrow: 1}}>
                 <Typography variant="h5" color="primary.dark" gutterBottom>

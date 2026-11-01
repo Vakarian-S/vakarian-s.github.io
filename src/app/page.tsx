@@ -8,13 +8,15 @@ import Reveal from "@/components/Reveal";
 
 
 export default function HomePage() {
-    const featuredProject = Projects[0];
-    const otherProjects = Projects.slice(1, 4);
+    const leadProject = Projects[0];
+    const secondProject = Projects[1];
+    const otherProjects = Projects.slice(2, 5);
 
     return (
         <>
             <Hero/>
-            <FeaturedProject project={featuredProject}/>
+            <FeaturedProject project={leadProject} tone="dark" tag="Solo Engine"/>
+            <FeaturedProject project={secondProject} tone="light" tag="Team · Unreal"/>
             <Container maxWidth="xl" sx={{pt: 5}}>
                 <Reveal delay={0} className={'flex items-center gap-4'}>
                     <span className={'uppercase text-xs font-medium tracking-[0.08333em] text-[#5f69a6] whitespace-nowrap'}>

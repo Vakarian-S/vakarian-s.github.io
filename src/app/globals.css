@@ -54,6 +54,11 @@ body {
   clip-path: polygon(0 var(--diagonal), 100% 0, 100% 100%, 0 100%);
 }
 
+/* Both edges rise left to right, so the band reads as one slanted ribbon */
+@utility clip-diagonal-both {
+  clip-path: polygon(0 var(--diagonal), 100% 0, 100% calc(100% - var(--diagonal)), 0 100%);
+}
+
 @utility bg-dot-grid {
   background-image: radial-gradient(rgb(255 255 255 / 0.11) 1px, transparent 1px);
   background-size: 22px 22px;

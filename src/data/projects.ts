@@ -13,9 +13,27 @@ export type Project = {
     videoSrc?: string;
     externalLink?: ExternalLink;
     highlight?: string;
+    status?: string;
 };
 
 export const Projects: Project[] = [
+    {
+        // TODO(Vakarian): real title, repo, capture and copy
+        slug: "vulkan-ecs-engine",
+        title: "Vulkan ECS Engine",
+        cardBlurb: "A 3D game engine written from scratch in C++20 with Vulkan and a data-oriented ECS. It is the successor to ECEngine: archetype storage instead of object components, and explicit GPU control instead of OpenGL. [PLACEHOLDER COPY]",
+        description:
+            "[PLACEHOLDER COPY] A 3D game engine written from scratch in C++20 with Vulkan and a data-oriented ECS. Where ECEngine taught me the object-and-component model that Unity and Unreal use, this engine rebuilds it the way engines are built today.\n" +
+            "\n" +
+            "[PLACEHOLDER: how the ECS stores components, and why that layout.]\n" +
+            "\n" +
+            "[PLACEHOLDER: how a frame reaches the screen — passes, command buffers, synchronization.]\n" +
+            "\n" +
+            "[PLACEHOLDER: the hardest bug and how you found it.]",
+        skills: ["C++20", "Vulkan", "ECS", "SPIR-V", "Render Graph", "SDL3"],
+        githubUrl: "https://github.com/Vakarian-S",
+        status: "In active development — updated regularly",
+    },
     {
         slug: "free-fall",
         title: "Free Fall",

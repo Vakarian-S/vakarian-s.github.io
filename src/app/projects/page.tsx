@@ -54,6 +54,7 @@ export default function ProjectsPage() {
                                 detailHref={`/projects/${project.slug}`}
                                 videoSrc={project.videoSrc}
                                 chips={project.skills}
+                                accent={index === 0}
                             />
                         ))}
                     </Container>
