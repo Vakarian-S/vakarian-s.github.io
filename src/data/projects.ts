@@ -18,20 +18,14 @@ export type Project = {
 
 export const Projects: Project[] = [
     {
-        // TODO(Vakarian): real title, repo, capture and copy
+        // TODO(Vakarian): real title and capture
         slug: "vulkan-ecs-engine",
         title: "Vulkan ECS Engine",
-        cardBlurb: "A 3D game engine written from scratch in C++20 with Vulkan and a data-oriented ECS. It is the successor to ECEngine: archetype storage instead of object components, and explicit GPU control instead of OpenGL. [PLACEHOLDER COPY]",
+        cardBlurb: "A C++20 game engine built on an archetype ECS and a hand-written Vulkan 1.3 renderer. It is modular by design, with UI, audio and controller input planned next. It carries its own instruments too: a memory monitor, a profiler and an arena allocator.",
         description:
-            "[PLACEHOLDER COPY] A 3D game engine written from scratch in C++20 with Vulkan and a data-oriented ECS. Where ECEngine taught me the object-and-component model that Unity and Unreal use, this engine rebuilds it the way engines are built today.\n" +
-            "\n" +
-            "[PLACEHOLDER: how the ECS stores components, and why that layout.]\n" +
-            "\n" +
-            "[PLACEHOLDER: how a frame reaches the screen — passes, command buffers, synchronization.]\n" +
-            "\n" +
-            "[PLACEHOLDER: the hardest bug and how you found it.]",
-        skills: ["C++20", "Vulkan", "ECS", "SPIR-V", "Render Graph", "SDL3"],
-        githubUrl: "https://github.com/Vakarian-S",
+            "A C++20 game engine built on an archetype ECS and a hand-written Vulkan 1.3 renderer. It is modular by design, with UI, audio and controller input planned next. It carries its own instruments too: a memory monitor, a profiler and an arena allocator.",
+        skills: ["C++20", "Vulkan", "ECS", "SDL3"],
+        githubUrl: "https://github.com/Vakarian-S/2026_GameEngines5",
         status: "In active development — updated regularly",
     },
     {
