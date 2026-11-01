@@ -3,6 +3,7 @@ import Image from "next/image";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CornerFrame from "@/components/CornerFrame";
+import { RESUME_HREF } from "@/lib/links";
 
 const heroContent = {
     eyebrow: "Game Programmer",
@@ -12,7 +13,7 @@ const heroContent = {
     availability: "Open to internships from January 2027 (Winter term)",
     location: "Based in Ontario · Willing to relocate",
     email: "sebastian.gvg94@gmail.com",
-    resumeHref: "/2026_09_Game_Programming_Intern.pdf",
+    resumeHref: RESUME_HREF,
     headshot: { src: "/headshot.png", alt: "Portrait of Sebastian Villarroel" },
 };
 

@@ -6,8 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DescriptionIcon from '@mui/icons-material/Description';
 import Link from 'next/link';
-
-const RESUME_HREF = '/2026_10_Game_Programming_Intern.pdf';
+import { RESUME_HREF } from '@/lib/links';
 
 const TopAppBar: FC = () => {
     const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 8 });
