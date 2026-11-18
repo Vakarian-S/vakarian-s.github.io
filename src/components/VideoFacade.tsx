@@ -20,14 +20,27 @@ function Placeholder(props: { tone: "dark" | "light"; className: string }) {
                 dark ? "bg-navy-800" : "bg-brand-50"
             } ${props.className}`}
         >
-            <span
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                    backgroundImage: `radial-gradient(${dark ? "rgb(255 255 255 / 0.14)" : "rgb(33 36 99 / 0.3)"} 1px, transparent 1px)`,
-                    backgroundSize: "22px 22px",
-                }}
-            />
+            {dark ? (
+                <>
+                    <Image
+                        src="/engine-capture.jpg"
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 55vw, 100vw"
+                        className="object-cover"
+                    />
+                    <span aria-hidden="true" className="absolute inset-0 bg-black/60" />
+                </>
+            ) : (
+                <span
+                    aria-hidden="true"
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage: "radial-gradient(rgb(33 36 99 / 0.3) 1px, transparent 1px)",
+                        backgroundSize: "22px 22px",
+                    }}
+                />
+            )}
             <span
                 aria-hidden="true"
                 className={`relative flex size-14 items-center justify-center rounded-full border-2 ${
