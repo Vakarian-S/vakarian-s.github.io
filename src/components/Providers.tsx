@@ -78,7 +78,7 @@ export default function Providers(props: { children: React.ReactNode }) {
                                     GitHub
                                 </a>
                                 <a
-                                    href="/2026_09_Game_Programming_Intern.pdf"
+                                    href="/2026_11_Game_Programming_Resume.pdf"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="hover:text-brand-900"
