@@ -4,6 +4,7 @@ import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import FeaturedProject from "@/components/FeaturedProject";
 import Hero from "@/components/Hero";
+import TalkCallout from "@/components/TalkCallout";
 import Reveal from "@/components/Reveal";
 
 
@@ -17,6 +18,7 @@ export default function HomePage() {
             <Hero/>
             <FeaturedProject project={leadProject} tone="dark" tag="Solo Engine"/>
             <FeaturedProject project={secondProject} tone="light" tag="Team · Unreal"/>
+            <TalkCallout/>
             <Container maxWidth="xl" sx={{pt: 5}}>
                 <Reveal delay={0} className={'flex items-center gap-4'}>
                     <span className={'uppercase text-xs font-medium tracking-[0.08333em] text-[#5f69a6] whitespace-nowrap'}>
